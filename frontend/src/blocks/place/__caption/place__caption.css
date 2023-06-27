@@ -1,0 +1,12 @@
+.place__caption {
+    padding: 25px 30px 25px 21px;
+    max-height: 79px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}

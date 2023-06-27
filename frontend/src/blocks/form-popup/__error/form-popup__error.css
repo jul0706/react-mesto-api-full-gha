@@ -1,0 +1,12 @@
+.form-popup__error {
+    color: #FF0000;
+    font-size: 12px;
+    line-height: 15px;
+    visibility: hidden;
+    min-height: 30px;
+    width: 238px;
+}
+
+.form-popup__error:last-child {
+    margin-bottom: 0;
+}

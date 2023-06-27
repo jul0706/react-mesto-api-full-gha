@@ -1,0 +1,39 @@
+.profile__avatar-button {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: relative;
+    border: none;
+    padding: 0;
+    margin: 39px auto 22px auto;
+    display: block;
+}
+
+.profile__avatar-button:hover {
+    cursor: pointer;
+}
+
+.profile__avatar-button:hover::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    background-image: url(../../../../src/images/avatar-pencil.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 924px) {
+    .profile__avatar-button {
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .profile__avatar-button {
+        margin-right: 24px;
+    }
+}

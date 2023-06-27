@@ -1,0 +1,18 @@
+.place__delete-icon {
+    padding: 0;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 18px;
+    height: 19px;
+    background: inherit;
+    background-image: url(../../../images/delete-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.place__delete-icon:hover {
+    opacity: 0.6;
+}

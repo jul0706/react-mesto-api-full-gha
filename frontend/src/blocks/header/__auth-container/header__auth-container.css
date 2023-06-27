@@ -1,0 +1,13 @@
+.header__auth-container {
+    margin: 34px 30px 33px;
+    display: grid;
+    gap: 18px;
+}
+
+@media screen and (min-width: 924px) {
+    .header__auth-container {
+        margin: 51px 0 46px 0;
+        gap: 24px;
+        grid-auto-flow: column;
+    }
+}
