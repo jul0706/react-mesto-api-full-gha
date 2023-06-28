@@ -1,7 +1,6 @@
 export class Api {
-	constructor(url, token) {
+	constructor(url) {
 		this._url = url;
-		this._token = token;
 	}
 
 	_checkResolve(res) {
@@ -15,10 +14,7 @@ export class Api {
 		//метод получения информации с сервера
 		return fetch(`${this._url}${configUrl}`, {
 			// вернули запрос
-			method: 'GET',
-			headers: {
-				authorization: this._token
-			}
+			method: 'GET'
 		}).then(res => {
 			//проверили ответ
 			return this._checkResolve(res);
@@ -30,7 +26,6 @@ export class Api {
 		return fetch(`${this._url}/users/me`, {
 			method: 'PATCH',
 			headers: {
-				authorization: this._token,
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
@@ -48,7 +43,6 @@ export class Api {
 		return fetch(`${this._url}cards`, {
 			method: 'POST',
 			headers: {
-				authorization: this._token,
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
@@ -63,10 +57,7 @@ export class Api {
 
 	deleteCard(cardId) {
 		return fetch(`${this._url}cards/${cardId}`, {
-			method: 'DELETE',
-			headers: {
-				authorization: this._token
-			}
+			method: 'DELETE'
 		}).then(res => {
 			//проверили ответ
 			return this._checkResolve(res);
@@ -78,10 +69,7 @@ export class Api {
 			//если пользователь лайкал карточку
 			return fetch(`${this._url}cards/${cardId}/likes`, {
 				// вернули запрос
-				method: 'DELETE', //удалить лайк
-				headers: {
-					authorization: this._token
-				}
+				method: 'DELETE' //удалить лайк
 			}).then(res => {
 				//проверили ответ
 				return this._checkResolve(res);
@@ -90,10 +78,7 @@ export class Api {
 			//если пользователь не лайкал карточку
 			return fetch(`${this._url}cards/${cardId}/likes`, {
 				// вернули запрос
-				method: 'PUT', //добавить лайк
-				headers: {
-					authorization: this._token
-				}
+				method: 'PUT' //добавить лайк
 			}).then(res => {
 				//проверили ответ
 				return this._checkResolve(res);
@@ -106,7 +91,6 @@ export class Api {
 		return fetch(`${this._url}users/me/avatar`, {
 			method: 'PATCH',
 			headers: {
-				authorization: this._token,
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
@@ -120,7 +104,6 @@ export class Api {
 }
 
 const api = new Api(
-	'https://mesto.nomoreparties.co/v1/cohort-62/',
-	'ad81bbad-9a90-4f3d-8a69-b0152768bbd9'
+	'https://api.jul.iv.mesto.nomoreparties.sbs'
 );
 export default api;
