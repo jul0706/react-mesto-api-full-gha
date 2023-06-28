@@ -104,6 +104,6 @@ export class Api {
 }
 
 const api = new Api(
-	'https://api.jul.iv.mesto.nomoreparties.sbs'
+	'https://api.jul.iv.mesto.nomoreparties.sbs/'
 );
 export default api;
