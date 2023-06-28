@@ -17,7 +17,7 @@ function Register({ userEmail, setEmail, setisInfoTooltipPopupOpen, setisAuthCom
                 setEmail(data.data.email);
                 setPassword(formValue.password);
                 setFormValue({ email: '', password: '' });
-                navigate('/sign-in', { replace: true });
+                navigate('/signin', { replace: true });
                 setisAuthComplete(true); //авторизация успешна
                 setisInfoTooltipPopupOpen(true); //открыть попап
             })
@@ -30,7 +30,7 @@ function Register({ userEmail, setEmail, setisInfoTooltipPopupOpen, setisAuthCom
     return (
         <div className="login">
             <AuthForm type={'Регистрация'} onSubmit={handleRegister} onChange={onChange} formValue={formValue} />
-            <p className="login__caption">Уже зарегистрированы? <Link className="login__entry-link" to="/sign-in">Войти</Link></p>
+            <p className="login__caption">Уже зарегистрированы? <Link className="login__entry-link" to="/signin">Войти</Link></p>
         </div>
     )
 }

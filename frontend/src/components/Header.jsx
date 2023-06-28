@@ -1,5 +1,5 @@
 import logoPath from '../images/logo.svg';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Header({ isLoggedIn, userEmail, onLogout }) {
 
@@ -8,15 +8,15 @@ function Header({ isLoggedIn, userEmail, onLogout }) {
     function logOut() { //выход из системы
         localStorage.removeItem('token'); //удалили токен
         onLogout(false) //обновили стэйт
-        navigate('/sign-in', { replace: true }); //перенаправили на страницу входа
+        navigate('/signin', { replace: true }); //перенаправили на страницу входа
     }
 
     function redirectToRegistration() { //перенаправление на регистрацию
-        navigate('/sign-up', { replace: false })
+        navigate('/signup', { replace: false })
     }
 
     function redirectToLogin() { //перенаправление на регистрацию
-        navigate('/sign-in', { replace: false })
+        navigate('/signin', { replace: false })
     }
 
     return (
@@ -29,9 +29,9 @@ function Header({ isLoggedIn, userEmail, onLogout }) {
                     type='button'
                     className='header__button'
                     onClick={
-                        isLoggedIn ? logOut : (window.location.href.endsWith('sign-in') ? redirectToRegistration : redirectToLogin)
+                        isLoggedIn ? logOut : (window.location.href.endsWith('signin') ? redirectToRegistration : redirectToLogin)
                     }>
-                    {isLoggedIn ? 'Выйти' : (window.location.href.endsWith('sign-in') ? 'Регистрация' : 'Войти')}
+                    {isLoggedIn ? 'Выйти' : (window.location.href.endsWith('signin') ? 'Регистрация' : 'Войти')}
                 </button>
             </div>
         </header>
