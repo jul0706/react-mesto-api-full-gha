@@ -131,7 +131,7 @@ function App() {
         .then((data) => {
           setLoggedIn(true);
           setEmail(data.data.email);
-          navigate('/react-mesto-auth', { replace: true });
+          navigate('/', { replace: true });
 
         })
         .catch(err => displayError(err));
@@ -162,7 +162,7 @@ function App() {
         <Header isLoggedIn={loggedIn} user={currentUser} userEmail={email} onLogout={handleLogin} />
         <Routes>
           <Route //роут для зарегистрированных пользователей с основным содержимым
-            path="/react-mesto-auth"
+            path="/"
             element={
               <ProtectedRouteElement element={Main}
                 onEditProfile={handleEditProfileClick}
@@ -178,7 +178,7 @@ function App() {
           />
 
           <Route //роут для регистрации
-            path="/sign-up"
+            path="/signup"
             element={
               <Register
                 onChange={handleChange}
@@ -192,7 +192,7 @@ function App() {
           />
 
           <Route //роут для авторизации
-            path="/sign-in"
+            path="/signin"
             element={
               <Login
                 onChange={handleChange}
