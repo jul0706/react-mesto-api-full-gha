@@ -10,6 +10,17 @@ export class Api {
 		return Promise.reject(`Ошибка: ${res.status}`);
 	}
 
+	initialGet () {
+		return fetch(`${this._url}users/me`, {
+			// вернули запрос
+			method: 'GET'
+		}).then(res => {
+			if (res.ok) {
+				return res.json();
+			}
+		});
+	}
+
 	getDataServer(configUrl) {
 		//метод получения информации с сервера
 		return fetch(`${this._url}${configUrl}`, {
