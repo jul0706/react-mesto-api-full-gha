@@ -124,35 +124,22 @@ function App() {
     setLoggedIn(isLogin);
   }
 
-  function checkToken() { //проверка токена
-    if (localStorage.getItem('token')) { //если в памяти браузера есть токен
-      const token = localStorage.getItem('token');
-      auth.checkToken(token) //запрос к API на регистрацию
-        .then((data) => {
-          setLoggedIn(true);
-          setEmail(data.data.email);
-          navigate('/', { replace: true });
-
-        })
-        .catch(err => displayError(err));
-    }
-  }
-
   useEffect(() => { //при загрузке страницы 
 
-    api.getDataServer('cards') //получили данные карточек и пользователя
-      .then((res) => {
-        setCards(res) //сохранили в стейт cards
-      })
-      .catch(err => displayError(err));
-
-    api.getDataServer('users/me')
+    api.getDataServer('users/me') //запрос на информацию о пользователе
       .then((res) => {
         setCurrentUser(res); //сохранили в стэйт currentUser
+        navigate('/cards', { replace: true });
+        setLoggedIn(true);
+        api.getDataServer('cards') //получили данные карточек и пользователя
+          .then((res) => {
+            setCards(res) //сохранили в стейт cards
+          })
+          .catch(() => {
+            navigate('/signin', { replace: true });
+          });
       })
-      .catch(err => displayError(err));
-
-    checkToken();//проверили токен пользователя
+      .catch(() => navigate('/signin', { replace: true }));
   }, [])
 
 
