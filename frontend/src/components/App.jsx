@@ -46,7 +46,7 @@ function App() {
   const navigate = useNavigate();
 
   function displayError(err) { //показ ошибки от сервера
-    alert(err)
+    console.log(err)
   };
 
   //функции бработчики - изменяют переменную состояния открытия попапов
@@ -130,7 +130,6 @@ function App() {
       .then((res) => {
         setCurrentUser(res); //сохранили в стэйт currentUser
         setLoggedIn(true);
-        navigate('/cards', { replace: true });
         api.getDataServer('cards') //получили данные карточек и пользователя
           .then((res) => {
             setCards(res) //сохранили в стейт cards
