@@ -1,11 +1,20 @@
 const allowedCorsDomain = process.env.FRONTEND_DOMAIN;
+const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
-const allowCors = (req, res, next) => {
-  const { origin } = req.headers;
-  if (allowedCorsDomain.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
+function allowCors(req, res, next) {
+  const { method } = req;
+  const requestHeaders = req.headers['access-control-request-headers'];
+  if (method === 'OPTIONS') {
+    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
+    res.header('Access-Control-Allow-Headers', requestHeaders);
+    res.end();
+  } else {
+    const { origin } = req.headers;
+    if (allowedCorsDomain.includes(origin)) {
+      res.header('Access-Control-Allow-Origin', origin);
+    }
   }
   next();
-};
+}
 
 module.exports = allowCors;
