@@ -12,7 +12,7 @@ class Auth {
 
   register({ email, password }) {
     //регистрация
-    return fetch(`${this.url}/signup`, {
+    return fetch(`${this.url}signup`, {
       // вернули запрос
       method: "POST",
       headers: {
@@ -26,7 +26,7 @@ class Auth {
   }
 
   login({ email, password }) { //авторизация
-    return fetch(`${this.url}/signin`, { // вернули запрос
+    return fetch(`${this.url}signin`, { // вернули запрос
       method: "POST",
       headers: {
         "Content-Type": "application/json",
