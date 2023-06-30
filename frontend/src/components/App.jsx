@@ -126,19 +126,17 @@ function App() {
 
   useEffect(() => { //при загрузке страницы 
 
-    api.initialGet() //запрос на информацию о пользователе
+    api.getDataServer('cards') //получили данные карточек и пользователя
+      .then((res) => {
+        setCards(res) //сохранили в стейт cards
+      })
+      .catch(err => displayError(err));
+
+    api.getDataServer('users/me')
       .then((res) => {
         setCurrentUser(res); //сохранили в стэйт currentUser
-        setLoggedIn(true);
-        api.getDataServer('cards') //получили данные карточек и пользователя
-          .then((res) => {
-            setCards(res) //сохранили в стейт cards
-          })
-          .catch((err) => {
-            displayError(err);
-          });
       })
-      .catch(() => navigate('/signin', { replace: true }));
+      .catch(err => displayError(err));
   }, [])
 
 
