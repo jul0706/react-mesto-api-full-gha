@@ -38,13 +38,13 @@ class Auth {
       })
   }
 
-  checkToken (token) {
+  checkToken () {
     return fetch(`${this.url}/users/me`, { // вернули запрос
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization" : `Bearer ${token}`
-    }
+      },
+      credentials: "include",
     })
       .then((res) => { //проверили ответ
         return this._checkResolve(res);
