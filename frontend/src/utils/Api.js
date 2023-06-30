@@ -10,22 +10,12 @@ export class Api {
 		return Promise.reject(`Ошибка: ${res.status}`);
 	}
 
-	initialGet () {
-		return fetch(`${this._url}users/me`, {
-			// вернули запрос
-			method: 'GET'
-		}).then(res => {
-			if (res.ok) {
-				return res.json();
-			}
-		});
-	}
-
 	getDataServer(configUrl) {
 		//метод получения информации с сервера
 		return fetch(`${this._url}${configUrl}`, {
 			// вернули запрос
-			method: 'GET'
+			method: 'GET',
+			credentials: "include",
 		}).then(res => {
 			//проверили ответ
 			return this._checkResolve(res);
@@ -39,6 +29,7 @@ export class Api {
 			headers: {
 				'Content-Type': 'application/json'
 			},
+			credentials: "include",
 			body: JSON.stringify({
 				name: data.name,
 				about: data.about
@@ -56,6 +47,7 @@ export class Api {
 			headers: {
 				'Content-Type': 'application/json'
 			},
+			credentials: "include",
 			body: JSON.stringify({
 				name: data.name,
 				link: data.link
@@ -68,7 +60,8 @@ export class Api {
 
 	deleteCard(cardId) {
 		return fetch(`${this._url}cards/${cardId}`, {
-			method: 'DELETE'
+			method: 'DELETE',
+			credentials: "include",
 		}).then(res => {
 			//проверили ответ
 			return this._checkResolve(res);
@@ -80,7 +73,8 @@ export class Api {
 			//если пользователь лайкал карточку
 			return fetch(`${this._url}cards/${cardId}/likes`, {
 				// вернули запрос
-				method: 'DELETE' //удалить лайк
+				method: 'DELETE', //удалить лайк
+				credentials: "include",
 			}).then(res => {
 				//проверили ответ
 				return this._checkResolve(res);
@@ -89,7 +83,8 @@ export class Api {
 			//если пользователь не лайкал карточку
 			return fetch(`${this._url}cards/${cardId}/likes`, {
 				// вернули запрос
-				method: 'PUT' //добавить лайк
+				method: 'PUT', //добавить лайк
+				credentials: "include",
 			}).then(res => {
 				//проверили ответ
 				return this._checkResolve(res);
@@ -104,6 +99,7 @@ export class Api {
 			headers: {
 				'Content-Type': 'application/json'
 			},
+			credentials: "include",
 			body: JSON.stringify({
 				avatar: data.avatar
 			})

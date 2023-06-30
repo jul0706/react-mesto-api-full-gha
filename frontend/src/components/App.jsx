@@ -152,8 +152,6 @@ function App() {
       })
       .catch(err => displayError(err));
 
-    checkToken();
-
   }, [])
 
 
