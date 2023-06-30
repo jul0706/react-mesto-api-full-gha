@@ -124,6 +124,20 @@ function App() {
     setLoggedIn(isLogin);
   }
 
+  function checkToken() { //проверка токена
+    if (localStorage.getItem('token')) { //если в памяти браузера есть токен
+      const token = localStorage.getItem('token');
+      auth.checkToken(token) //запрос к API на регистрацию
+        .then((data) => {
+          setLoggedIn(true);
+          setEmail(data.data.email);
+          navigate('/react-mesto-auth', { replace: true });
+
+        })
+        .catch(err => displayError(err));
+    }
+  }
+
   useEffect(() => { //при загрузке страницы 
 
     api.getDataServer('cards') //получили данные карточек и пользователя
@@ -137,6 +151,9 @@ function App() {
         setCurrentUser(res); //сохранили в стэйт currentUser
       })
       .catch(err => displayError(err));
+
+    checkToken();
+
   }, [])
 
 
