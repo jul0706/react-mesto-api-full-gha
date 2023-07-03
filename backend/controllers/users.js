@@ -101,7 +101,7 @@ const login = (req, res, next) => {
               maxAge: 360000,
               httpOnly: true,
               sameSite: 'none',
-              secure: process.env.NODE_ENV === 'production',
+              secure: true,
 
             });
             res.set('Set-Cookie', `jwt=${jwt}`);

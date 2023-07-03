@@ -31,7 +31,6 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
 
     React.useEffect(() => { //при открытии попапа подставить информацию о пользователе в поля формы
         if (user.name && user.about) {
-            console.log("HI")
             setFormValue({
                 name: user.name,
                 about: user.about

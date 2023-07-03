@@ -140,17 +140,11 @@ function App() {
 
   useEffect(() => { //при входе на страницу 
 
-    api.getDataServer('cards') //получили данные карточек и пользователя
+    api.getDataServer('cards') //получили данные карточек
       .then((res) => {
         setCards(res) //сохранили в стейт cards
       })
       .catch(err => displayError(err));
-
-    /*api.getDataServer(`users/me${currentUser._id}`)
-      .then((res) => {
-        setCurrentUser(res); //сохранили в стэйт currentUser
-      })
-      .catch(err => displayError(err));*/
 
   }, [loggedIn])
 
