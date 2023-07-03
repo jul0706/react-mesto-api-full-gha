@@ -146,11 +146,11 @@ function App() {
       })
       .catch(err => displayError(err));
 
-    api.getDataServer('users/me')
+    /*api.getDataServer(`users/me${currentUser._id}`)
       .then((res) => {
         setCurrentUser(res); //сохранили в стэйт currentUser
       })
-      .catch(err => displayError(err));
+      .catch(err => displayError(err));*/
 
   }, [loggedIn])
 
@@ -202,6 +202,7 @@ function App() {
                 setisInfoTooltipPopupOpen={setisInfoTooltipPopupOpen}
                 setisAuthComplete={setisAuthComplete}
                 setFormValue={setFormValue}
+                setCurrentUser={setCurrentUser}
               />}
           />
         </Routes>

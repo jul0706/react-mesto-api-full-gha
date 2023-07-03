@@ -4,7 +4,7 @@ import { auth } from "../utils/auth";
 import AuthForm from "./AuthForm";
 
 
-function Login({ onLogin, userEmail, setEmail, setisInfoTooltipPopupOpen, setisAuthComplete, onChange, formValue, setFormValue }) {
+function Login({ onLogin, setEmail, setisInfoTooltipPopupOpen, setisAuthComplete, onChange, formValue, setFormValue, setCurrentUser }) {
 
     const [password, setPassword] = useState('') //стэйт пароля
 
@@ -16,11 +16,12 @@ function Login({ onLogin, userEmail, setEmail, setisInfoTooltipPopupOpen, setisA
             return;
         }
         auth.login(formValue) //запрос к API на вход
-            .then((data) => {
-                console.log(data);
-                localStorage.setItem('token', data.token); //сохранили токен
+            .then((userData) => {
+                console.log(userData);
+                //localStorage.setItem('token', data.token); //сохранили токен
+                setCurrentUser(userData)
                 onLogin(true);
-                setEmail(formValue.email);
+                setEmail(userData.email);
                 setPassword(formValue.password);
                 setFormValue({ email: '', password: '' });
                 navigate('/', { replace: true });
