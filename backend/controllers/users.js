@@ -104,7 +104,6 @@ const login = (req, res, next) => {
               secure: true,
 
             });
-            res.set('Set-Cookie', `jwt=${jwt}`);
             res.status(200).send(user);
           } else {
             const err = new Error();
