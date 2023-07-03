@@ -14,7 +14,7 @@ function Register({ userEmail, setEmail, setisInfoTooltipPopupOpen, setisAuthCom
         e.preventDefault();
         auth.register(formValue)
             .then((data) => {
-                setEmail(data.data.email);
+                setEmail(data.email);
                 setPassword(formValue.password);
                 setFormValue({ email: '', password: '' });
                 navigate('/signin', { replace: true });
