@@ -100,8 +100,11 @@ const login = (req, res, next) => {
             res.cookie('jwt', jwt, {
               maxAge: 360000,
               httpOnly: true,
-              sameSite: true,
+              sameSite: 'none',
+              secure: process.env.NODE_ENV === 'production',
+
             });
+            res.set('Set-Cookie', `jwt=${jwt}`);
             res.status(200).send(user);
           } else {
             const err = new Error();

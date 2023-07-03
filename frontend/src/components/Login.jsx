@@ -17,7 +17,6 @@ function Login({ onLogin, setEmail, setisInfoTooltipPopupOpen, setisAuthComplete
         }
         auth.login(formValue) //запрос к API на вход
             .then((userData) => {
-                console.log(userData);
                 //localStorage.setItem('token', data.token); //сохранили токен
                 setCurrentUser(userData)
                 onLogin(true);
