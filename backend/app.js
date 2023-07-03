@@ -9,7 +9,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const allowCors = require('./middlewares/cors');
 
 const app = express();
-const { BASE_URL_DB = 'mongodb://mestodb.api.jul.iv.mesto.nomoreparties.sbs:28015' } = process.env;
+const { BASE_URL_DB = 'mongodb://127.0.0.1/mestodb' } = process.env;
 
 mongoose.connect(BASE_URL_DB, {
   useNewUrlParser: true,
