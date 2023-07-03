@@ -182,11 +182,11 @@ function App() {
               <Register
                 onChange={handleChange}
                 formValue={formValue}
-                userEmail={email}
                 setEmail={setEmail}
                 setisInfoTooltipPopupOpen={setisInfoTooltipPopupOpen}
                 setisAuthComplete={setisAuthComplete}
                 setFormValue={setFormValue}
+                setCurrentUser={setCurrentUser}
               />}
           />
 

@@ -12,7 +12,6 @@ class Auth {
 
   register({ email, password }) {
     //регистрация
-    console.log({ email, password });
     return fetch(`${this.url}signup`, {
       // вернули запрос
       method: "POST",

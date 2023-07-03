@@ -4,7 +4,7 @@ import AuthForm from "./AuthForm";
 import { useState } from "react";
 
 
-function Register({ userEmail, setEmail, setisInfoTooltipPopupOpen, setisAuthComplete, onChange, formValue, setFormValue }) {
+function Register({ setEmail, setisInfoTooltipPopupOpen, setisAuthComplete, onChange, formValue, setFormValue }) {
 
     const [password, setPassword] = useState('') //стэйт пароля
 
