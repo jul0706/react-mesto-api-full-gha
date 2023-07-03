@@ -102,7 +102,7 @@ const login = (req, res, next) => {
               httpOnly: true,
               sameSite: true,
             });
-            res.status(200).send({ token: jwt });
+            res.status(200).send(user);
           } else {
             const err = new Error();
             err.name = process.env.AUTH_ERROR;
