@@ -138,7 +138,7 @@ function App() {
     }
   }
 
-  useEffect(() => { //при загрузке страницы 
+  useEffect(() => { //при входе на страницу 
 
     api.getDataServer('cards') //получили данные карточек и пользователя
       .then((res) => {
@@ -152,7 +152,7 @@ function App() {
       })
       .catch(err => displayError(err));
 
-  }, [])
+  }, [loggedIn])
 
 
   return (
