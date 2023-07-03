@@ -14,6 +14,7 @@ const { BASE_URL_DB = 'mongodb://127.0.0.1/mestodb' } = process.env;
 mongoose.connect(BASE_URL_DB, {
   useNewUrlParser: true,
 });
+console.log(process.env);
 
 app.use(express.json());
 app.use(cookieParser());
