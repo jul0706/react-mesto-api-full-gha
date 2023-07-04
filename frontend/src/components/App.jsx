@@ -75,7 +75,7 @@ function App() {
 
   function handleCardLike(card) { // лайк/дизлайк карточки
     const isUserLiked = card.likes.some((userLiked) => { //лайкал ли пользователь карточку
-      return userLiked._id === currentUser._id
+      return userLiked === currentUser._id
     })
     api.likeCard(card._id, isUserLiked) //запрос на постановку/снятие лайка
       .then((newCard) => {
@@ -87,7 +87,7 @@ function App() {
   function handleCardDelete(id) { //удаление карточки
     api.deleteCard(id) //запрос на удаление карточки
       .then(() => {
-        setCards((state) => state.filter((c) => c._id != id))
+        setCards((state) => state.filter((c) => c._id !== id))
       })
       .catch(err => displayError(err));
   }

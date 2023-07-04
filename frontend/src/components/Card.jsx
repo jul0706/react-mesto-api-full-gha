@@ -7,7 +7,7 @@ function Card({ cardData, onCardClick, onCardLike, onCardDelete }) {
 
     const isUserOwner = cardData.owner === user._id; //является ли пользователь владельцем карточки
     const isUserLiked = cardData.likes.some((userLiked) => { //лайкал ли пользователь карточку
-        return userLiked._id === user._id
+        return userLiked === user._id
     })
 
     function handleImageClick() { //обработчик открытия попапа с изображением
