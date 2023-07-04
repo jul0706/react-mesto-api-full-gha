@@ -16,9 +16,6 @@ export class Api {
 			// вернули запрос
 			method: 'GET',
 			credentials: 'include',
-			xhrFields: {
-                withCredentials: true
-            }
 		}).then(res => {
 			//проверили ответ
 			return this._checkResolve(res);
