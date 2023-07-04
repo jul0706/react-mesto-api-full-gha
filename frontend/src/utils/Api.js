@@ -24,7 +24,7 @@ export class Api {
 
 	editUserInfo(data) {
 		// метод изменения информации о пользователе
-		return fetch(`${this._url}/users/me`, {
+		return fetch(`${this._url}users/me`, {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json'

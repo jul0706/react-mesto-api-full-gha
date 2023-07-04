@@ -139,13 +139,13 @@ function App() {
   }
 
   useEffect(() => { //при входе на страницу 
-
-    api.getDataServer('cards') //получили данные карточек
-      .then((res) => {
-        setCards(res) //сохранили в стейт cards
-      })
-      .catch(err => displayError(err));
-
+    if (loggedIn) {
+      api.getDataServer('cards') //получили данные карточек
+        .then((res) => {
+          setCards(res) //сохранили в стейт cards
+        })
+        .catch(err => displayError(err));
+    }
   }, [loggedIn])
 
 
