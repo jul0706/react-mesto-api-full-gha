@@ -46,7 +46,7 @@ function App() {
   const navigate = useNavigate();
 
   function displayError(err) { //показ ошибки от сервера
-    console.log(err)
+    console.log(err.message)
   };
 
   //функции бработчики - изменяют переменную состояния открытия попапов
