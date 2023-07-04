@@ -16,9 +16,9 @@ mongoose.connect(BASE_URL_DB, {
 });
 
 app.use(express.json());
+app.use(cors);
 app.use(cookieParser());
 app.use(requestLogger);
-app.use(cors);
 app.use(router);
 app.use(errorLogger);
 app.use(errors());
