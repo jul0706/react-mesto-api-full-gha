@@ -1,12 +1,12 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const router = require('./routes');
 const errorHandler = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const allowCors = require('./middlewares/cors');
 
 const app = express();
 const { BASE_URL_DB = 'mongodb://127.0.0.1/mestodb' } = process.env;
@@ -18,7 +18,7 @@ mongoose.connect(BASE_URL_DB, {
 app.use(express.json());
 app.use(cookieParser());
 app.use(requestLogger);
-app.use(allowCors);
+app.use(cors());
 app.use(router);
 app.use(errorLogger);
 app.use(errors());
