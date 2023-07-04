@@ -6,7 +6,6 @@ function allowCors(req, res, next) {
   const { method } = req;
   const requestHeaders = req.headers['access-control-request-headers'];
   const { origin } = req.headers;
-  console.log(origin);
   res.header('Access-Control-Allow-Credentials', 'true');
   if (allowedCorsDomain.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);
