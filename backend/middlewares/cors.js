@@ -4,7 +4,7 @@ const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
 function allowCors(req, res, next) {
   const { method } = req;
-  const requestHeaders = req.headers['access-control-request-headers'];
+  const requestHeaders = req.headers['Access-Control-Request-Headers'];
   const { origin } = req.headers;
   res.header('Access-Control-Allow-Credentials', 'true');
   if (allowedCorsDomain.includes(origin)) {
