@@ -38,6 +38,18 @@ class Auth {
         return this._checkResolve(res);
       })
   }
+
+  checkToken () {
+    return fetch(`${this.url}/users/me`, { // вернули запрос
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+    }
+    })
+      .then((res) => { //проверили ответ
+        return this._checkResolve(res);
+      })
+  }
 }
 
 export const auth = new Auth('https://api.jul.iv.mesto.nomoreparties.sbs/');

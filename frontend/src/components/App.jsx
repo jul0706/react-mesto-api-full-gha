@@ -124,29 +124,29 @@ function App() {
     setLoggedIn(isLogin);
   }
 
-  function checkToken() { //проверка токена
-    if (localStorage.getItem('token')) { //если в памяти браузера есть токен
-      const token = localStorage.getItem('token');
-      auth.checkToken(token) //запрос к API на регистрацию
-        .then((data) => {
-          setLoggedIn(true);
-          setEmail(data.data.email);
-          navigate('/react-mesto-auth', { replace: true });
+  function checkToken() {
+    auth.checkToken()
+      .then((data) => {
+        setLoggedIn(true);
+        navigate('/', { replace: true });
 
-        })
-        .catch(err => displayError(err));
-    }
+      })
+      .catch(err => displayError(err));
   }
 
   useEffect(() => { //при входе на страницу 
+    checkToken();
     if (loggedIn) {
-      api.getDataServer('cards') //получили данные карточек
-        .then((res) => {
-          setCards(res) //сохранили в стейт cards
+
+      Promise.all([api.getDataServer('users/me'), api.getDataServer('cards')])
+        .then(([userData, cardData]) => {
+          setCurrentUser(userData);
+          setCards(cardData);
+          navigate("/", { replace: true });
         })
         .catch(err => displayError(err));
     }
-  }, [loggedIn])
+  }, [])
 
 
   return (
