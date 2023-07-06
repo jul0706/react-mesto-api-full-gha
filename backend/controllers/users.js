@@ -114,6 +114,13 @@ const login = (req, res, next) => {
     .catch(next);
 };
 
+const logout = (req, res, next) => {
+  res
+    .clearCookie('jwt')
+    .json({ message: 'Выход' })
+    .catch(next);
+};
+
 module.exports = {
   getUsers,
   getUserById,
@@ -122,4 +129,5 @@ module.exports = {
   updateUserAvatar,
   login,
   getUserInfo,
+  logout,
 };

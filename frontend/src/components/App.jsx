@@ -127,7 +127,6 @@ function App() {
   function checkToken() {
     auth.checkToken()
       .then((data) => {
-        console.log(data);
         setCurrentUser(data);
         setLoggedIn(true);
         navigate('/', { replace: true });

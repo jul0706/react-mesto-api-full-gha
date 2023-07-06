@@ -39,6 +39,16 @@ class Auth {
       })
   }
 
+  logout () {
+		return fetch(`${this._url}logout`, {
+			method: 'GET',
+			credentials: 'include',
+		})
+    .then(res => {
+			return this._checkResolve(res);
+		});
+	}
+
   checkToken () {
     return fetch(`${this.url}users/me`, { // вернули запрос
       method: "GET",

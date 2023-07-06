@@ -1,12 +1,14 @@
 import logoPath from '../images/logo.svg';
 import { useNavigate } from 'react-router-dom';
+import { auth } from '../utils/auth';
 
 function Header({ isLoggedIn, user, onLogout }) {
 
     const navigate = useNavigate();
 
     function logOut() { //выход из системы
-        localStorage.removeItem('token'); //удалили токен
+        auth.logout();
+        localStorage.removeItem('login') //удалили токен
         onLogout(false) //обновили стэйт
         navigate('/signin', { replace: true }); //перенаправили на страницу входа
     }

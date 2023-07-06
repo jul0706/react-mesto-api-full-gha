@@ -6,9 +6,11 @@ const {
   updateUserInfo,
   updateUserAvatar,
   getUserInfo,
+  logout,
 } = require('../controllers/users');
 
 router.get('/', getUsers);
+router.get('/logout', logout);
 router.get('/me', getUserInfo);
 router.get('/:id', celebrate({
   params: Joi.object().keys({
