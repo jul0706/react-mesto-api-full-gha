@@ -98,7 +98,7 @@ const login = (req, res, next) => {
               _id: user._id,
             }, process.env.JWT_SECRET);
             res.cookie('jwt', jwt, {
-              maxAge: 360000,
+              maxAge: 360000 * 24 * 7,
               httpOnly: true,
               sameSite: 'none',
               secure: true,
@@ -117,7 +117,8 @@ const login = (req, res, next) => {
 const logout = (req, res, next) => {
   res
     .clearCookie('jwt')
-    .send()
+    .status(200)
+    .send({ message: 'Выход' })
     .catch(next);
 };
 
