@@ -127,6 +127,8 @@ function App() {
   function checkToken() {
     auth.checkToken()
       .then((data) => {
+        console.log(data);
+        setCurrentUser(data);
         setLoggedIn(true);
         navigate('/', { replace: true });
 
@@ -146,13 +148,13 @@ function App() {
         })
         .catch(err => displayError(err));
     }
-  }, [])
+  }, [loggedIn])
 
 
   return (
     <>
       <CurrentUserContext.Provider value={currentUser}>
-        <Header isLoggedIn={loggedIn} user={currentUser} userEmail={email} onLogout={handleLogin} />
+        <Header isLoggedIn={loggedIn} user={currentUser} userEmail={currentUser.email} onLogout={handleLogin} />
         <Routes>
           <Route //роут для зарегистрированных пользователей с основным содержимым
             path="/"

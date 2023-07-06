@@ -40,11 +40,12 @@ class Auth {
   }
 
   checkToken () {
-    return fetch(`${this.url}/users/me`, { // вернули запрос
+    return fetch(`${this.url}users/me`, { // вернули запрос
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-    }
+      },
+      credentials: 'include',
     })
       .then((res) => { //проверили ответ
         return this._checkResolve(res);

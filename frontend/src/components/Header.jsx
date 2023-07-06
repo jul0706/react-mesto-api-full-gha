@@ -1,7 +1,7 @@
 import logoPath from '../images/logo.svg';
 import { useNavigate } from 'react-router-dom';
 
-function Header({ isLoggedIn, userEmail, onLogout }) {
+function Header({ isLoggedIn, user, onLogout }) {
 
     const navigate = useNavigate();
 
@@ -24,7 +24,7 @@ function Header({ isLoggedIn, userEmail, onLogout }) {
             <img src={logoPath} alt="логотип сайта" className="header__logo" />
 
             <div className='header__auth-container'>
-                {isLoggedIn && <p className="header__login">{userEmail}</p>} {/*Если пользователь авторизован, показать почту*/}
+                {isLoggedIn && <p className="header__login">{user.email}</p>} {/*Если пользователь авторизован, показать почту*/}
                 <button
                     type='button'
                     className='header__button'
