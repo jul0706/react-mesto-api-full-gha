@@ -116,7 +116,13 @@ const login = (req, res, next) => {
 
 const logout = (req, res, next) => {
   res
-    .clearCookie('jwt')
+    .clearCookie('jwt', {
+      domain: 'api.jul.iv.mesto.nomoreparties.sbs',
+      path: '/',
+      sameSite: 'none',
+      secure: true,
+      httpOnly: true,
+    })
     .status(200)
     .send({ message: 'Выход' })
     .catch(next);
