@@ -117,8 +117,8 @@ const login = (req, res, next) => {
 const logout = (req, res, next) => {
   res
     .clearCookie('jwt', {
-      domain: 'api.jul.iv.mesto.nomoreparties.sbs',
-      path: '/',
+      // domain: 'api.jul.iv.mesto.nomoreparties.sbs',
+      // path: '/',
       sameSite: 'none',
       secure: true,
       httpOnly: true,
