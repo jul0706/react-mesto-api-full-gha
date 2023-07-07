@@ -1,6 +1,6 @@
 {
   "homepage": "https://jul.iv.mesto.nomoreparties.sbs",
-  "name": "frontend-mesto",
+  "name": "react-mesto-api-full-gha",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
