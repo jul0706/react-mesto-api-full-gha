@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 158.160.96.166
 
-Frontend https://...
+Frontend https://jul.iv.mesto.nomoreparties.sbs
 
-Backend https://...
+Backend https://api.jul.iv.mesto.nomoreparties.sbs
