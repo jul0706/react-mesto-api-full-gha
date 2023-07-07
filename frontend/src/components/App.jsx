@@ -153,7 +153,7 @@ function App() {
   return (
     <>
       <CurrentUserContext.Provider value={currentUser}>
-        <Header isLoggedIn={loggedIn} user={currentUser} userEmail={currentUser.email} onLogout={handleLogin} />
+        <Header isLoggedIn={loggedIn} user={currentUser} onLogout={handleLogin} />
         <Routes>
           <Route //роут для зарегистрированных пользователей с основным содержимым
             path="/"

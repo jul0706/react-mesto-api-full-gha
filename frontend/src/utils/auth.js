@@ -40,11 +40,11 @@ class Auth {
   }
 
   logout () {
-		return fetch(`${this._url}logout`, {
+		return fetch(`${this.url}users/logout`, {
 			method: 'GET',
 			credentials: 'include',
 		})
-    .then(res => {
+    .then((res) => {
 			return this._checkResolve(res);
 		});
 	}

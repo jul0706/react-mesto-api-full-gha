@@ -8,7 +8,7 @@ function Header({ isLoggedIn, user, onLogout }) {
 
     function logOut() { //выход из системы
         auth.logout();
-        localStorage.removeItem('login') //удалили токен
+        //localStorage.removeItem('login') //удалили токен
         onLogout(false) //обновили стэйт
         navigate('/signin', { replace: true }); //перенаправили на страницу входа
     }
