@@ -5,12 +5,12 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: https://github.com/jul0706/react-mesto-api-full-gha
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 158.160.96.166
 
-Frontend https://...
+Frontend https://jul.iv.mesto.nomoreparties.sbs
 
-Backend https://...
+Backend https://api.jul.iv.mesto.nomoreparties.sbs
