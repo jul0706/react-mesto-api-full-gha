@@ -1,7 +1,4 @@
-import * as dotenv from 'dotenv';
-
-dotenv.config();
-/* require('dotenv').config(); */
+const dodenv = require('dotenv');
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
@@ -13,6 +10,8 @@ const cors = require('./middlewares/cors');
 
 const app = express();
 const { BASE_URL_DB = 'mongodb://127.0.0.1/mestodb' } = process.env;
+
+dodenv.config();
 
 mongoose.connect(BASE_URL_DB, {
   useNewUrlParser: true,
