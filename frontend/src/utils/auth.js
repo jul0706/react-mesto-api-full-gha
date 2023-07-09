@@ -62,5 +62,4 @@ class Auth {
       })
   }
 }
-
 export const auth = new Auth('https://api.jul.iv.mesto.nomoreparties.sbs');
