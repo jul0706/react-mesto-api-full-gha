@@ -11,22 +11,22 @@ const {
 const errorHandler = (err, req, res, next) => {
   let error;
   switch (err.name) {
-    case `${process.env.UNAUTHORIZED_ERROR}`:
+    case process.env.NODE_ENV === 'production' ? `${process.env.UNAUTHORIZED_ERROR}` : 'Unauthorized':
       error = new UnauthorizedError(err);
       break;
-    case `${process.env.AUTH_ERROR}`:
+    case process.env.NODE_ENV === 'production' ? `${process.env.AUTH_ERROR}` : 'AuthError':
       error = new WrongAuthError(err);
       break;
-    case `${process.env.NOT_FOUND_ERROR}`:
+    case process.env.NODE_ENV === 'production' ? `${process.env.NOT_FOUND_ERROR}` : 'NotFound':
       error = new NotFoundError(err);
       break;
-    case `${process.env.CAST_ERROR}`:
+    case process.env.NODE_ENV === 'production' ? `${process.env.CAST_ERROR}` : 'CastError':
       error = new IncorrectIdError(err);
       break;
-    case `${process.env.VALIDATION_ERROR}`:
+    case process.env.NODE_ENV === 'production' ? `${process.env.VALIDATION_ERROR}` : 'ValidationError':
       error = new ValidationError(err);
       break;
-    case `${process.env.MONGO_SERVER_ERROR}`:
+    case process.env.NODE_ENV === 'production' ? `${process.env.MONGO_SERVER_ERROR}` : 'MongoServerError':
       error = new DublicateUserError(err);
       break;
     default:
