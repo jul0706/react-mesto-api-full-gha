@@ -139,7 +139,7 @@ function App() {
     checkToken();
     if (loggedIn) {
 
-      Promise.all([api.getDataServer('users/me'), api.getDataServer('cards')])
+      Promise.all([api.getDataServer('/users/me'), api.getDataServer('/cards')])
         .then(([userData, cardData]) => {
           setCurrentUser(userData);
           setCards(cardData);

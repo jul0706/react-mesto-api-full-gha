@@ -12,7 +12,7 @@ class Auth {
 
   register({ email, password }) {
     //регистрация
-    return fetch(`${this.url}signup`, {
+    return fetch(`${this.url}/signup`, {
       // вернули запрос
       method: "POST",
       headers: {
@@ -26,7 +26,7 @@ class Auth {
   }
 
   login({ email, password }) { //авторизация
-    return fetch(`${this.url}signin`, { // вернули запрос
+    return fetch(`${this.url}/signin`, { // вернули запрос
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ class Auth {
   }
 
   logout () {
-		return fetch(`${this.url}users/logout`, {
+		return fetch(`${this.url}/users/logout`, {
 			method: 'GET',
 			credentials: 'include',
 		})
@@ -50,7 +50,7 @@ class Auth {
 	}
 
   checkToken () {
-    return fetch(`${this.url}users/me`, { // вернули запрос
+    return fetch(`${this.url}/users/me`, { // вернули запрос
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -63,4 +63,4 @@ class Auth {
   }
 }
 
-export const auth = new Auth('https://api.jul.iv.mesto.nomoreparties.sbs/');
+export const auth = new Auth('https://api.jul.iv.mesto.nomoreparties.sbs');

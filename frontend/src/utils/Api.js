@@ -24,7 +24,7 @@ export class Api {
 
 	editUserInfo(data) {
 		// метод изменения информации о пользователе
-		return fetch(`${this._url}users/me`, {
+		return fetch(`${this._url}/users/me`, {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json'
@@ -42,7 +42,7 @@ export class Api {
 
 	addCard(data) {
 		//метод добавленя карточки пользователем
-		return fetch(`${this._url}cards`, {
+		return fetch(`${this._url}/cards`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -59,7 +59,7 @@ export class Api {
 	}
 
 	deleteCard(cardId) {
-		return fetch(`${this._url}cards/${cardId}`, {
+		return fetch(`${this._url}/cards/${cardId}`, {
 			method: 'DELETE',
 			credentials: 'include',
 		}).then(res => {
@@ -71,7 +71,7 @@ export class Api {
 	likeCard(cardId, isLiked) {
 		if (isLiked) {
 			//если пользователь лайкал карточку
-			return fetch(`${this._url}cards/${cardId}/likes`, {
+			return fetch(`${this._url}/cards/${cardId}/likes`, {
 				// вернули запрос
 				method: 'DELETE', //удалить лайк
 				credentials: 'include',
@@ -81,7 +81,7 @@ export class Api {
 			});
 		} else {
 			//если пользователь не лайкал карточку
-			return fetch(`${this._url}cards/${cardId}/likes`, {
+			return fetch(`${this._url}/cards/${cardId}/likes`, {
 				// вернули запрос
 				method: 'PUT', //добавить лайк
 				credentials: 'include',
@@ -94,7 +94,7 @@ export class Api {
 
 	changeAvatar(data) {
 		//изменение аватара пользователя
-		return fetch(`${this._url}users/me/avatar`, {
+		return fetch(`${this._url}/users/me/avatar`, {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json'
@@ -111,6 +111,6 @@ export class Api {
 }
 
 const api = new Api(
-	'https://api.jul.iv.mesto.nomoreparties.sbs/'
+	'https://api.jul.iv.mesto.nomoreparties.sbs'
 );
 export default api;
