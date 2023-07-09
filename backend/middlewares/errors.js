@@ -11,22 +11,22 @@ const {
 const errorHandler = (err, req, res, next) => {
   let error;
   switch (err.name) {
-    case process.env.UNAUTHORIZED_ERROR:
+    case `${process.env.UNAUTHORIZED_ERROR}`:
       error = new UnauthorizedError(err);
       break;
-    case process.env.AUTH_ERROR:
+    case `${process.env.AUTH_ERROR}`:
       error = new WrongAuthError(err);
       break;
-    case process.env.NOT_FOUND_ERROR:
+    case `${process.env.NOT_FOUND_ERROR}`:
       error = new NotFoundError(err);
       break;
-    case process.env.CAST_ERROR:
+    case `${process.env.CAST_ERROR}`:
       error = new IncorrectIdError(err);
       break;
-    case process.env.VALIDATION_ERROR:
+    case `${process.env.VALIDATION_ERROR}`:
       error = new ValidationError(err);
       break;
-    case process.env.MONGO_SERVER_ERROR:
+    case `${process.env.MONGO_SERVER_ERROR}`:
       error = new DublicateUserError(err);
       break;
     default:

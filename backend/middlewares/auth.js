@@ -5,9 +5,9 @@ const auth = (req, res, next) => {
   let payload;
 
   try {
-    payload = jsonWebToken.verify(token, process.env.JWT_SECRET);
+    payload = jsonWebToken.verify(token, `${process.env.JWT_SECRET}`);
   } catch (err) {
-    err.name = process.env.AUTH_ERROR;
+    err.name = `${process.env.AUTH_ERROR}`;
     next(err);
   }
   req.user = payload;
