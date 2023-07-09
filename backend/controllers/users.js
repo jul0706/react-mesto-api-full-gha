@@ -2,6 +2,8 @@ const bcrypt = require('bcryptjs');
 const jsonWebToken = require('jsonwebtoken');
 const User = require('../models/user');
 
+const secret = process.env.NODE_ENV === 'production' ? `${process.env.JWT_SECRET}` : 'dev-secret';
+
 function getUser(id, res, next) {
   User.findById(id)
     .orFail(() => {
@@ -96,7 +98,7 @@ const login = (req, res, next) => {
           if (isUserFind) {
             const jwt = jsonWebToken.sign({
               _id: user._id,
-            }, process.env.NODE_ENV === 'production' ? `${process.env.JWT_SECRET}` : 'dev-secret');
+            }, secret);
             res.cookie('jwt', jwt, {
               maxAge: 360000 * 24 * 7,
               httpOnly: true,
