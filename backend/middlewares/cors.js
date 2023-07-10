@@ -1,4 +1,4 @@
-const allowedCorsDomain = ['https://jul.iv.mesto.nomoreparties.sbs', 'http://jul.iv.mesto.nomoreparties.sbs', 'http://localhost:3000'];
+const allowedCorsDomain = ['https://jul.iv.mesto.nomoreparties.sbs', 'http://jul.iv.mesto.nomoreparties.sbs', 'http://localhost:3000', 'https://localhost:3000'];
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
 function allowCors(req, res, next) {

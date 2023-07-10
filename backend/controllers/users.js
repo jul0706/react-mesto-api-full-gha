@@ -104,7 +104,7 @@ const login = (req, res, next) => {
                 maxAge: 360000 * 24 * 7,
                 httpOnly: true,
                 sameSite: 'none',
-                secure: false,
+                secure: true,
               })
               .send(user);
           } else {
@@ -121,7 +121,7 @@ const logout = (req, res, next) => {
   res
     .clearCookie('jwt', {
       sameSite: 'none',
-      secure: false,
+      secure: true,
       httpOnly: true,
     })
     .status(200)
