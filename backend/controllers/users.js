@@ -17,11 +17,6 @@ function getUser(id, res, next) {
 
 const getUsers = (req, res, next) => {
   User.find({})
-    .orFail(() => {
-      const err = new Error();
-      err.name = process.env.NODE_ENV === 'production' ? `${process.env.NOT_FOUND_ERROR}` : 'NotFound';
-      next(err);
-    })
     .then((users) => res.status(200).send(users))
     .catch(next);
 };
@@ -35,11 +30,12 @@ const getUserInfo = (req, res, next) => {
 };
 
 const createUser = (req, res, next) => {
-  if (!req.body.password) {
+  /* if (!req.body.password) {
     const err = new Error();
-    err.name = process.env.NODE_ENV === 'production' ? `${process.env.VALIDATION_ERROR}` : 'ValidationError';
+    err.name = process.env.NODE_ENV === 'production' ? `${process.env.VALIDATION_ERROR}` :
+    'ValidationError';
     next(err);
-  }
+  } */
   bcrypt.hash(String(req.body.password), 10)
     .then((hash) => User.create({
       ...req.body,
