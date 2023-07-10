@@ -9,7 +9,7 @@ const auth = (req, res, next) => {
   try {
     payload = jsonWebToken.verify(token, secret);
   } catch (err) {
-    err.name = process.env.NODE_ENV === 'production' ? `${process.env.AUTH_ERROR}` : 'AuthError';
+    err.name = process.env.NODE_ENV === 'production' ? `${process.env.UNAUTHORIZED_ERROR}` : 'Unauthorized';
     next(err);
   }
   req.user = payload;
