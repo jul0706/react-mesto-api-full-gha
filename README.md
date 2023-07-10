@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.96.166
+IP 158.160.96.166
 
 Frontend https://jul.iv.mesto.nomoreparties.sbs
 
