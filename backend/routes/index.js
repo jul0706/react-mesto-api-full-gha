@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
 const userRoutes = require('./users');
 const cardRoutes = require('./cards');
-const { createUser, login } = require('../controllers/users');
+const { createUser, login, logout } = require('../controllers/users');
 const auth = require('../middlewares/auth');
 
 router.get('/crash-test', () => {
@@ -27,6 +27,7 @@ router.post('/signin', celebrate({
   }),
 }), login);
 router.use(auth);
+router.get('/logout', logout);
 router.use('/users', userRoutes);
 router.use('/cards', cardRoutes);
 router.use('/*', (req, res) => {

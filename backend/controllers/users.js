@@ -30,12 +30,6 @@ const getUserInfo = (req, res, next) => {
 };
 
 const createUser = (req, res, next) => {
-  /* if (!req.body.password) {
-    const err = new Error();
-    err.name = process.env.NODE_ENV === 'production' ? `${process.env.VALIDATION_ERROR}` :
-    'ValidationError';
-    next(err);
-  } */
   bcrypt.hash(String(req.body.password), 10)
     .then((hash) => User.create({
       ...req.body,
@@ -46,11 +40,7 @@ const createUser = (req, res, next) => {
         .status(201)
         .send(user.toJSON());
     })
-    .catch(() => {
-      const error = new Error();
-      error.name = process.env.NODE_ENV === 'production' ? `${process.env.VALIDATION_ERROR}` : 'ValidationError';
-      next(error);
-    });
+    .catch(next);
 };
 
 const updateUserInfo = (req, res, next) => {
