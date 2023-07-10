@@ -26,8 +26,8 @@ router.post('/signin', celebrate({
     password: Joi.string().required().min(8),
   }),
 }), login);
-router.use(auth);
 router.get('/logout', logout);
+router.use(auth);
 router.use('/users', userRoutes);
 router.use('/cards', cardRoutes);
 router.use('/*', (req, res) => {
