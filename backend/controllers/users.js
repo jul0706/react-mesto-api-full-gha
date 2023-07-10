@@ -105,7 +105,7 @@ const login = (req, res, next) => {
               sameSite: 'none',
               secure: true,
             });
-            res.status(200).send(user);
+            res.status(200).send(JSON.stringify(jwt));
           } else {
             const err = new Error();
             err.name = process.env.NODE_ENV === 'production' ? `${process.env.AUTH_ERROR}` : 'AuthError';
