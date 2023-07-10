@@ -40,7 +40,7 @@ class Auth {
   }
 
   logout () {
-		return fetch(`${this.url}/users/logout`, {
+		return fetch(`${this.url}/logout`, {
 			method: 'GET',
 			credentials: 'include',
 		})
