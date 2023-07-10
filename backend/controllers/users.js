@@ -99,13 +99,12 @@ const login = (req, res, next) => {
             const jwt = jsonWebToken.sign({
               _id: user._id,
             }, secret);
-            res.cookie('jwt', jwt, {
-              maxAge: 360000 * 24 * 7,
-              httpOnly: true,
-              sameSite: 'none',
-              secure: true,
-            });
-            res.status(200).send(JSON.stringify(jwt));
+            res.status(200)
+              .cookie('jwt', jwt, {
+                maxAge: 360000 * 24 * 7,
+                httpOnly: true,
+              })
+              .send(user);
           } else {
             const err = new Error();
             err.name = process.env.NODE_ENV === 'production' ? `${process.env.AUTH_ERROR}` : 'AuthError';
