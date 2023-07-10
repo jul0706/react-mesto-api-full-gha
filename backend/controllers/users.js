@@ -46,7 +46,11 @@ const createUser = (req, res, next) => {
         .status(201)
         .send(user.toJSON());
     })
-    .catch(next);
+    .catch(() => {
+      const error = new Error();
+      error.name = process.env.NODE_ENV === 'production' ? `${process.env.VALIDATION_ERROR}` : 'ValidationError';
+      next(error);
+    });
 };
 
 const updateUserInfo = (req, res, next) => {
