@@ -8,8 +8,9 @@ function Header({ isLoggedIn, user, onLogout }) {
 
     function logOut() { //выход из системы
         auth.logout();
-        onLogout(false) //обновили стэйт
         navigate('/signin', { replace: true }); //перенаправили на страницу входа
+        onLogout(false) //обновили стэйт
+
     }
 
     function redirectToRegistration() { //перенаправление на регистрацию
