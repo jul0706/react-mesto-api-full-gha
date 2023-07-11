@@ -111,7 +111,7 @@ const logout = (req, res, next) => {
   res
     .clearCookie('jwt', {
       sameSite: 'none',
-      secure: true,
+      secure: process.env.NODE_ENV === 'production',
       httpOnly: true,
     })
     .status(200)
