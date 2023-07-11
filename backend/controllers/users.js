@@ -94,7 +94,7 @@ const login = (req, res, next) => {
                 maxAge: 360000 * 24 * 7,
                 httpOnly: true,
                 sameSite: 'none',
-                secure: true,
+                secure: process.env.NODE_ENV === 'production',
               })
               .send(user);
           } else {
